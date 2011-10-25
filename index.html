@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Occupy Everything</title>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="inc/bootstrap.min.css">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+      }
+      .container-fluid {
+        min-width: inherit;
+      }
+      .container-fluid > .sidebar {
+        float: none;
+        width: auto;
+      }
+      .hidden-content {
+        display: none
+      }
+      li.thumb { list-style: none; float: left; margin: 5px; padding: 3px; background: #eee; -moz-box-shadow: 0 0 4px #444; -webkit-box-shadow: 0 0 2px #000; }
+      li.thumb a { }
+      li.thumb img { display: block; width: 63px }
+      li.thumb a img { border: none; }
+    </style>
+    <link rel="stylesheet" type="text/css" href="inc/jquery.zrssfeed.css" />
+    <script type="text/javascript" src="inc/jquery-1.5.1.js"></script>
+    <script type="text/javascript" src="inc/jquery.zrssfeed.js"></script>
+    <script type="text/javascript" src="inc/jflickrfeed.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#showoccupy').live('click', function() {
+          $('#fetchResults').html($('#content-occupy').html());
+        });
+        $('#showphotos').live('click', function() {
+          $('#fetchResults').html('<ul id="fetchPhotos" style="margin: 0; padding: 0"></ul>');
+          $('#fetchPhotos').jflickrfeed({
+            limit: 50,
+            qstrings: {
+              tags: 'occupywallst'
+            },
+            itemTemplate: '<li class="thumb"><a href="{{image_b}}"><img src="{{image_s}}" alt="{{title}}" /></a></li>'
+          });
+          $('#fetchResults').append('<br style="clear: both" />');
+        });
+        $('#showstream').live('click', function() {
+          $('#fetchResults').rssfeed('http://pipes.yahoo.com/pipes/pipe.run?_id=fc0778f19765fcf5e0aa29216133e3e7&_render=rss', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+        });
+        $('#occupy-everything').live('click', function() {
+          $('#fetchResults').rssfeed('http://pipes.yahoo.com/pipes/pipe.run?_id=62ced48a8b63dd8469724b706d149213&_render=rss', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-atlanta').live('click', function() {
+          $('#fetchResults').rssfeed('http://occupyatlanta.org/rss', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-boston').live('click', function() {
+          $('#fetchResults').rssfeed('http://occupyboston.com/feed/', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-chicago').live('click', function() {
+          $('#fetchResults').rssfeed('http://occupychi.org/feed/', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-colleges').live('click', function() {
+          $('#fetchResults').rssfeed('http://occupycolleges.org/?feed=rss2', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-columbus').live('click', function() {
+          $('#fetchResults').rssfeed('http://www.occupycolumbus.org/feed/', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-houston').live('click', function() {
+          $('#fetchResults').rssfeed('http://occupyhouston.org/feed/', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-lasvegas').live('click', function() {
+          $('#fetchResults').rssfeed('http://occupylasvegas.org/rss.xml', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-lexington').live('click', function() {
+          $('#fetchResults').rssfeed('http://www.occupylexky.org/feed/', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-losangeles').live('click', function() {
+          $('#fetchResults').rssfeed('http://occupylosangeles.org/?q=rss.xml', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-phoenix').live('click', function() {
+          $('#fetchResults').rssfeed('http://occupyphoenix.net/?feed=rss2', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-portland').live('click', function() {
+          $('#fetchResults').rssfeed('http://occupypdx.org/feed/', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-sacramento').live('click', function() {
+          $('#fetchResults').rssfeed('http://occupysac.com/?feed=rss2', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-sanfrancisco').live('click', function() {
+          $('#fetchResults').rssfeed('http://www.occupysf.com/index.php?format=feed&type=rss', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-santacruz').live('click', function() {
+          $('#fetchResults').rssfeed('http://occupysantacruz.org/feed/', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-stlouis').live('click', function() {
+          $('#fetchResults').rssfeed('http://www.occupystl.org/feed/', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-tampa').live('click', function() {
+          $('#fetchResults').rssfeed('http://www.occupytampa.org/feed/', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-wallstreet').live('click', function() {
+          $('#fetchResults').rssfeed('http://occupywallst.org/rss/news/', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-austin').live('click', function() {
+          $('#fetchResults').rssfeed('http://occupyaustin.org/feed/', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-miami').live('click', function() {
+          $('#fetchResults').rssfeed('http://occupymia.org/rss.xml', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-michigan').live('click', function() {
+          $('#fetchResults').rssfeed('http://www.occupymi.org/feed/', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-milwaukee').live('click', function() {
+          $('#fetchResults').rssfeed('http://occupymilwaukee.org/rss.xml', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-minnesota').live('click', function() {
+          $('#fetchResults').rssfeed('http://www.occupymn.org/feed/', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-washingtondc').live('click', function() {
+          $('#fetchResults').rssfeed('http://occupydc.org/feed/', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-newcastle').live('click', function() {
+          $('#fetchResults').rssfeed('http://search.twitter.com/search.rss?q=+from%3Aoccupynewcastle', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-orangecounty').live('click', function() {
+          $('#fetchResults').rssfeed('http://www.occupyorangecounty.com/feed/', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-sandiego').live('click', function() {
+          $('#fetchResults').rssfeed('http://search.twitter.com/search.rss?q=+from%3Aoccupysd', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-dallas').live('click', function() {
+          $('#fetchResults').rssfeed('http://occupydallas.org/rss.xml', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-fresno').live('click', function() {
+          $('#fetchResults').rssfeed('http://occupyfresnoca.com/feed/', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-london').live('click', function() {
+          $('#fetchResults').rssfeed('http://occupylsx.org/?feed=rss2', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-philadelphia').live('click', function() {
+          $('#fetchResults').rssfeed('http://occupyphilly.org/activity/feed/', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="container-fluid">
+          <!-- <a class="brand" href="#">Project name</a> -->
+          <ul class="nav">
+            <li><a href="#" id="showoccupy">Occupy ____ News</a></li>
+            <li><a href="#" id="showphotos">Photos</a></li>
+            <li><a href="#" id="showstream">Stream</a></li>
+          </ul>
+          <!-- <p class="pull-right">Logged in as <a href="#">username</a></p> -->
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="sidebar">
+        <div class="well">
+          <div id="fetchResults">
+            <h5>Occupy Everything</h5>
+            <p>
+              Occupy Everything is a mobile application designed to keep people participating in the Occupy Movement informed and up to date about what is going on, both locally and nationally.
+            </p>
+            <p>
+              <ul>
+                <li><strong>Occupy _____ News</strong> contains a list of news hubs for the major Occupy Movement pockets, as well as an "Occupy Everything"  news hub that aggregates all of them.</li>
+                <li style="margin-top: 5px"><strong>Photos</strong> is a collection of the most recent <u>#occupywallst</u> photographs that have been uploaded to flickr.</li>
+                <li style="margin-top: 5px"><strong>Stream</strong> is a stream of the most recent news and tweets from the Occupy Movement.</li>
+              </ul>
+            </p>
+            <p><a class="btn primary" href="http://twitter.com/intent/tweet?source=webclient&text=Get%20Occupy%20Everything%20for%20%23iOS%20/%20Web%20and%20stay%20up-to-date%20on%20the%20%23OWS%20/%20%23OccupyWallStreet%20movement!%20https%3A%2F%2Foccupyeverything.github.com" style="display: block; font-weight: bold; margin-top: 10px; padding: 7px 14px; text-align: center">Tweet Occupy Everything</a></p>
+            <!-- <p>
+              We've kept this app advertisement free, if you like it, please consider purchasing the donor version.
+              <a class="btn success" href="http://market.android.com/details?id=com.thinglet.occupyeverythingpro" style="display: block; font-weight: bold; margin-top: 10px; padding: 7px 14px; text-align: center">Purchase Occupy Everything</a>
+            </p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hidden-content" id="content-occupy">
+      <a class="btn primary" id="occupy-everything" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Everything</a>
+      <a class="btn" id="occupy-atlanta" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Atlanta</a>
+      <a class="btn" id="occupy-austin" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Austin</a>
+      <a class="btn" id="occupy-boston" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Boston</a>
+      <a class="btn" id="occupy-chicago" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Chicago</a>
+      <a class="btn" id="occupy-colleges" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Colleges</a>
+      <a class="btn" id="occupy-columbus" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Columbus</a>
+      <a class="btn" id="occupy-dallas" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Dallas</a>
+      <a class="btn" id="occupy-fresno" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Fresno</a>
+      <a class="btn" id="occupy-houston" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Houston</a>
+      <a class="btn" id="occupy-lasvegas" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Las Vegas</a>
+      <a class="btn" id="occupy-lexington" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Lexington</a>
+      <a class="btn" id="occupy-london" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy London</a>
+      <a class="btn" id="occupy-losangeles" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Los Angeles</a>
+      <a class="btn" id="occupy-miami" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Miami</a>
+      <a class="btn" id="occupy-michigan" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Michigan</a>
+      <a class="btn" id="occupy-milwaukee" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Milwaukee</a>
+      <a class="btn" id="occupy-minnesota" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Minnesota</a>
+      <a class="btn" id="occupy-newcastle" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Newcastle</a>
+      <a class="btn" id="occupy-orangecounty" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Orange County</a>
+      <a class="btn" id="occupy-philadelphia" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Philadelphia</a>
+      <a class="btn" id="occupy-phoenix" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Phoenix</a>
+      <a class="btn" id="occupy-portland" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Portland</a>
+      <a class="btn" id="occupy-sacramento" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Sacramento</a>
+      <a class="btn" id="occupy-sandiego" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy San Diego</a>
+      <a class="btn" id="occupy-sanfrancisco" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy San Francisco</a>
+      <a class="btn" id="occupy-santacruz" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Santa Cruz</a>
+      <a class="btn" id="occupy-stlouis" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy St. Louis</a>
+      <a class="btn" id="occupy-tampa" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Tampa</a>
+      <a class="btn" id="occupy-wallstreet" style="display: block; padding: 7px 14px">Occupy Wall Street</a>
+      <a class="btn" id="occupy-washingtondc" style="display: block; padding: 7px 14px">Occupy Washington D.C.</a>
+    </div>
+  </body>
+</html>
