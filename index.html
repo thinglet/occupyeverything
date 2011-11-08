@@ -302,6 +302,30 @@
           });
           scroll(0,0);
         });
+        $('#occupy-oakland').live('click', function() {
+          $('#fetchResults').rssfeed('http://www.occupyoakland.org/feed/', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-richmond').live('click', function() {
+          $('#fetchResults').rssfeed('http://occupyrva.org/feed/', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
+        $('#occupy-seattle').live('click', function() {
+          $('#fetchResults').rssfeed('http://occupyseattle.org/rss.xml', {
+            date   : false,
+            header : false,
+            limit  : 50
+          });
+          scroll(0,0);
+        });
       });
     </script>
   </head>
@@ -363,17 +387,20 @@
       <a class="btn" id="occupy-milwaukee" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Milwaukee</a>
       <a class="btn" id="occupy-minnesota" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Minnesota</a>
       <a class="btn" id="occupy-newcastle" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Newcastle</a>
+      <a class="btn" id="occupy-oakland" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Oakland</a>
       <a class="btn" id="occupy-orangecounty" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Orange County</a>
       <a class="btn" id="occupy-philadelphia" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Philadelphia</a>
       <a class="btn" id="occupy-phoenix" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Phoenix</a>
       <a class="btn" id="occupy-portland" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Portland</a>
+      <a class="btn" id="occupy-richmond" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Richmond</a>
       <a class="btn" id="occupy-sacramento" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Sacramento</a>
       <a class="btn" id="occupy-sandiego" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy San Diego</a>
       <a class="btn" id="occupy-sanfrancisco" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy San Francisco</a>
       <a class="btn" id="occupy-santacruz" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Santa Cruz</a>
+      <a class="btn" id="occupy-seattle" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Seattle</a>
       <a class="btn" id="occupy-stlouis" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy St. Louis</a>
       <a class="btn" id="occupy-tampa" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Tampa</a>
-      <a class="btn" id="occupy-wallstreet" style="display: block; margin-bottom: 15px; padding: 7px 14px">Occupy Wall Street</a>
+      <a class="btn" id="occupy-wallstreet" style="display: block; padding: 7px 14px">Occupy Wall Street</a>
       <a class="btn" id="occupy-washingtondc" style="display: block; padding: 7px 14px">Occupy Washington D.C.</a>
     </div>
   </body>
